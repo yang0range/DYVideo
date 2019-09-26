@@ -1,0 +1,46 @@
+/**
+ * config.gradle用于配置项目中各种lib引用和版本号控制
+ *
+ * [module_*] 各module版本号及applicationId控制
+ * 如需在各个module中升级更新版本号，请使用 module_[modulename]*的命名规则
+ *
+ * [project.ext.dependVersion] 中创建各个依赖库的版本号控制，需在类库名称后增加‘_version’
+ *
+ * [类库maven地址] 中创建各个类库的maven地址，同一类库需要引用多个类时，可以使用数组，要确保类库引用不重复
+ *
+ * [项目依赖列表] 中创建可以直接让module引用的依赖列表，以Deps结尾，原则上以类库功能分类，比如网络库，图片处理库
+ * 尽量不要以类库本身的名字命名依赖列表
+ *
+ * 各个module中引用类库时尽量使用项目依赖列表中的项目，不要直接使用类库地址中的项目
+ *
+ * 需要添加新的类库时，先查询本列表和项目中是否已引用类似功能的类库，尽量不要添加重复功能的类库
+ */
+project.ext {
+
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.3'
+    minSdkVersion = 17
+    targetSdkVersion = 28
+
+    appApplicationId = 'com.yang.dyvideo'
+    appVersionCode = 1
+    appVersionName = '1.0'
+
+    //引用类库的版本号
+    dependVersion = [
+            support_version   : '28.0.0',
+            constraint_version: '1.1.3',
+            kotlin_version    : '1.3.31',
+    ]
+    //*************************类库maven地址**************************
+    supportLibs = [
+            appcompat_v7   : "com.android.support:appcompat-v7:$dependVersion.support_version",
+            constraint     : "com.android.support.constraint:constraint-layout:1.1.3",
+            recyclerview_v7: "com.android.support:recyclerview-v7:$dependVersion.support_version"
+
+    ]
+
+
+    supportDeps = [supportLibs.values()]
+
+}
