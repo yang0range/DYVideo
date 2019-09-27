@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DYVideo</string>
+    <string name="dy_iv_desciption">列表的图片</string>
+    <string name="dy_title_default">--</string>
 </resources>

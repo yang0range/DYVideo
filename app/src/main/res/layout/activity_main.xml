@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f3f3f3"
     tools:context=".activity.MainActivity"
     tools:ignore="MissingConstraints">
 
@@ -11,7 +12,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rlv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingTop="20dp" />
 
 
 </android.support.constraint.ConstraintLayout>

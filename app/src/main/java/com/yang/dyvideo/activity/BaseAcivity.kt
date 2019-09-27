@@ -1,5 +1,6 @@
 package com.yang.dyvideo.activity
 
+import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 /**
@@ -9,6 +10,16 @@ import android.support.v7.app.AppCompatActivity
  *
  */
 abstract class BaseAcivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(layoutId())
+        initData()
+        initView()
+        start()
+        initListener()
+    }
+
     abstract fun initListener()
 
     /**
