@@ -101,6 +101,7 @@ class VideoPlayActivity : BaseAcivity() {
 
         myLayoutManager = MyLayoutManager(this, OrientationHelper.VERTICAL, false);
         rlv_play_video.layoutManager = myLayoutManager
+        mAdapter = videolist?.let { VideoPlayAdapter(this, it) }
         rlv_play_video.adapter = mAdapter
     }
 

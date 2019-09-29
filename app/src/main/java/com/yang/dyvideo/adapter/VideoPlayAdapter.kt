@@ -23,25 +23,26 @@ import com.yang.dyvideo.widget.VideoLikeView
 class VideoPlayAdapter (private val mContext: Context, private val mVideoList: List<Video>): RecyclerView.Adapter<VideoPlayAdapter.VideoPlayAdapterViewHolder>() {
     private var onItemClickListener: VideoAdapter.OnItemClickListener? = null
 
-    //点击事件的接口
-    interface OnItemClickListener {
-        fun onItemClick(view: View, position: Int, mVideo: Video)
-
-    }
-
-    fun setOnItemClickListener(listener: VideoAdapter.OnItemClickListener) {
-        this.onItemClickListener = listener
-    }
+//    //点击事件的接口
+//    interface OnItemClickListener {
+//        fun onItemClick(view: View, position: Int, mVideo: Video)
+//
+//    }
+//
+//    fun setOnItemClickListener(listener: VideoAdapter.OnItemClickListener) {
+//        this.onItemClickListener = listener
+//    }
 
 
 
     override fun onBindViewHolder(mViewHolder: VideoPlayAdapterViewHolder, position: Int) {
         val mVideo = mVideoList[position]
         mViewHolder.iv_video_cover.setImageResource(mVideo.iamge)
-        mViewHolder.surface_view.setVideoURI(Uri.parse(mVideo.videoplayer))
+//        mViewHolder.surface_view.setVideoURI(Uri.parse(mVideo.videoplayer))
+        mViewHolder.surface_view.setVideoURI(Uri.parse("http://jzvd.nathen.cn/b201be3093814908bf987320361c5a73/2f6d913ea25941ffa78cc53a59025383-5287d2089db37e62345123a1be272f8b.mp4"))
         if (!mViewHolder.surface_view.isPlaying()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                mViewHolder.surface_view.setOnPreparedListener(MediaPlayer.OnPreparedListener { mp ->
+                mViewHolder.surface_view.setOnPreparedListener { mp ->
                     mp.setOnInfoListener(MediaPlayer.OnInfoListener { mp, what, extra ->
                         if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
                             mp.isLooping = true
@@ -53,7 +54,7 @@ class VideoPlayAdapter (private val mContext: Context, private val mVideoList: L
                         }
                         false
                     })
-                })
+                }
             }
             mViewHolder.surface_view.start()
 
@@ -78,7 +79,7 @@ class VideoPlayAdapter (private val mContext: Context, private val mVideoList: L
                 override fun onClick(v: View) {
                     run {
                         val position = holder.layoutPosition
-                        this@VideoPlayAdapter.onItemClickListener!!.onItemClick(holder.itemView, position, mVideoList[position])
+                        onItemClickListener!!.onItemClick(holder.itemView, position, mVideoList[position])
                     }
 
                 }
