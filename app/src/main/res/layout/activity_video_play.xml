@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#2D2D33"
     tools:ignore="MissingConstraints,ContentDescription">
 
     <android.support.v7.widget.RecyclerView
-    android:id="@+id/rlv_play_video"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:descendantFocusability="beforeDescendants" />
+        android:id="@+id/rlv_play_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants" />
 
 
     <LinearLayout
@@ -79,6 +79,15 @@
     </LinearLayout>
 
 
-
+    <ImageView
+        android:id="@+id/iv_video_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_video_play"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

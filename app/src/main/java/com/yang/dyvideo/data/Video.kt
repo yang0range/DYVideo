@@ -11,4 +11,5 @@ class Video : Serializable {
     var title: String? = null
     var videoplayer: String? = null
     var iamge: Int = 0
+    var like: Boolean = false
 }
