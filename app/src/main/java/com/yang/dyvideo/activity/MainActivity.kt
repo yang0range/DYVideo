@@ -16,11 +16,8 @@ class MainActivity : BaseAcivity() {
     override fun initListener() {
         mAdapter?.let {
             it.setOnItemClickListener { view, position, mVideo ->
-
+                startActivity(VideoPlayActivity.buildIntent(this,position, videolist as ArrayList<Video>?))
             }
-
-
-
         }
 
     }
