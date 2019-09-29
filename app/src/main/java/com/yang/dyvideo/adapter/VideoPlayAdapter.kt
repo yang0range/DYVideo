@@ -38,8 +38,8 @@ class VideoPlayAdapter (private val mContext: Context, private val mVideoList: L
     override fun onBindViewHolder(mViewHolder: VideoPlayAdapterViewHolder, position: Int) {
         val mVideo = mVideoList[position]
         mViewHolder.iv_video_cover.setImageResource(mVideo.iamge)
-//        mViewHolder.surface_view.setVideoURI(Uri.parse(mVideo.videoplayer))
-        mViewHolder.surface_view.setVideoURI(Uri.parse("http://jzvd.nathen.cn/b201be3093814908bf987320361c5a73/2f6d913ea25941ffa78cc53a59025383-5287d2089db37e62345123a1be272f8b.mp4"))
+        mViewHolder.surface_view.setVideoURI(Uri.parse(mVideo.videoplayer))
+//        mViewHolder.surface_view.setVideoURI(Uri.parse("http://jzvd.nathen.cn/b201be3093814908bf987320361c5a73/2f6d913ea25941ffa78cc53a59025383-5287d2089db37e62345123a1be272f8b.mp4"))
         if (!mViewHolder.surface_view.isPlaying()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 mViewHolder.surface_view.setOnPreparedListener { mp ->
