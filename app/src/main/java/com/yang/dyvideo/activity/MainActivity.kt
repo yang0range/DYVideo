@@ -24,6 +24,10 @@ class MainActivity : BaseAcivity() {
             })
 
         }
+
+//        iv_user_follow.setOnClickListener {
+//
+//        }
     }
         override fun initData() {
             videolist = ArrayList()

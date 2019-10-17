@@ -21,7 +21,7 @@ import com.yang.dyvideo.widget.VideoLikeView
  * @desc
  */
 class VideoPlayAdapter (private val mContext: Context, private val mVideoList: List<Video>): RecyclerView.Adapter<VideoPlayAdapter.VideoPlayAdapterViewHolder>() {
-    private var onItemClickListener: VideoAdapter.OnItemClickListener? = null
+    private var onItemClickListener: VideoPlayAdapter.OnItemClickListener? = null
 
 //    //点击事件的接口
 //    interface OnItemClickListener {
@@ -33,7 +33,14 @@ class VideoPlayAdapter (private val mContext: Context, private val mVideoList: L
 //        this.onItemClickListener = listener
 //    }
 
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.onItemClickListener = listener
+    }
 
+    interface OnItemClickListener {
+        fun onItemClick(view: View, position: Int)
+
+    }
 
     override fun onBindViewHolder(mViewHolder: VideoPlayAdapterViewHolder, position: Int) {
         val mVideo = mVideoList[position]
@@ -73,13 +80,15 @@ class VideoPlayAdapter (private val mContext: Context, private val mVideoList: L
         return if (mVideoList.isEmpty()) 0 else mVideoList.size
     }
 
-    private fun setOnItemClick(holder: VideoPlayAdapterViewHolder) {
-        if (this.onItemClickListener != null) {
+    protected fun setOnItemClick(holder: VideoPlayAdapterViewHolder) {
+        if (onItemClickListener != null) {
+            //为holder增加点击事件
+            //为了保持插入和删除的position正确 不采用getview的position
             holder.itemView.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(v: View) {
                     run {
-                        val position = holder.layoutPosition
-                        onItemClickListener!!.onItemClick(holder.itemView, position, mVideoList[position])
+                        val position = holder.getLayoutPosition()
+                        onItemClickListener!!.onItemClick(holder.itemView, position)
                     }
 
                 }
