@@ -113,8 +113,7 @@ class VideoPlayActivity : BaseAcivity() {
 
     private fun praiseMethod(position: Int) {
         iv_user_follow.setImageResource(R.mipmap.ic_love_red)
-        videolist?.get(position)!!.like = true
-        mAdapter!!.notifyItemChanged(position)
+
     }
 
 
