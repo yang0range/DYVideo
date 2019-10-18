@@ -63,7 +63,7 @@ class VideoPlayActivity : BaseAcivity() {
 
 
         mAdapter!!.setOnItemClickListener(object : VideoPlayAdapter.OnItemClickListener {
-             var timeout = 500//双击间吾百毫秒延时
+             var timeout = 500//双击间百毫秒延时
              var clickCount = 0//记录连续点击次数
              var handler = Handler()
 
@@ -132,7 +132,7 @@ class VideoPlayActivity : BaseAcivity() {
         val videoView = itemView.findViewById<FullWindowVideoView>(R.id.surface_view)
         val imgThumb = itemView.findViewById<ImageView>(R.id.iv_video_cover)
         val mediaPlayer = arrayOfNulls<MediaPlayer>(1)
-        videoView.setOnPreparedListener({ })
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             videoView.setOnInfoListener { mp, what, extra ->
                 mediaPlayer[0] = mp
