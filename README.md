@@ -1,3 +1,6 @@
+#### 欢迎关注公共号
+##### 关注公共号会有更多收获！
+![](https://upload-images.jianshu.io/upload_images/3258163-82da30438838140c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 # 高仿抖音播放（一）——需求详解
 ## 背景
 **抖音**，可以说目前最火的短视频APP！作为一名 Android 开发，是时候研究一下功能是如何实现的了！  
